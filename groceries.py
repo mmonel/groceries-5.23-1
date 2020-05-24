@@ -1,6 +1,6 @@
 # groceries.py
 
-#from pprint import pprint
+# from pprint import pprint
 
 products = [
     {"id": 1, "name": "Chocolate Sandwich Cookies",
@@ -65,7 +65,7 @@ for one_product in sorted_products:
     # print(one_product["name"])
     # price_usd = one_product["price"]
     price_usd = "( ${0:.2f})".format(one_product["price"])
-    print("..." + one_product["name"] + price_usd)
+    print("+ " + one_product["name"] + price_usd)
 
 # PART 2
 
@@ -90,8 +90,13 @@ unique_departments.sort()
 for d in unique_departments:
     matching_products = [
         one_product for one_product in products if one_product["department"] == d]
-    matching_products = len(matching_products)
-    print(d.title() + " (" + str(matching_products) + " products)")
+    matching_products_count = len(matching_products)
+    if matching_products_count > 1:
+        label = "products"
+    else:
+        label = "product"
+
+    print("+ " + d.title() + " (" + str(matching_products_count) + " " + label + ")")
 
 # TODO: write some Python code here to produce the desired output
 
