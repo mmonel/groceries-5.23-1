@@ -45,6 +45,9 @@ products = [
         "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]  # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+
+# PART 1
+
 products_count = len(products)
 print("--------------")
 print("THERE ARE " + str(products_count) + " PRODUCTS:")
@@ -56,12 +59,6 @@ def sort_by_name(any_product):
 
 
 sorted_products = sorted(products, key=sort_by_name)
-# {"id": 1,
-#  "name": "Chocolate Sandwich Cookies",
-#         "department": "snacks",
-#         "aisle": "cookies cakes",
-#         "price": 3.50
-#         }
 
 
 for one_product in sorted_products:
@@ -70,6 +67,24 @@ for one_product in sorted_products:
     price_usd = "( ${0:.2f})".format(one_product["price"])
     print("..." + one_product["name"] + price_usd)
 
+# PART 2
+
+
+departments = []
+for one_product in products:
+    # print(one_product["department"])
+    # departments.append(one_product["department"])
+    if one_product["department"] not in departments:
+        departments.append(one_product["department"])
+
+departments_count = len(departments)
+
+print("--------------")
+print("THERE ARE " + str(departments_count) + " DEPARTMENTS:")
+print("--------------")
+
+for d in departments:
+    print(d)
 
 # TODO: write some Python code here to produce the desired output
 
@@ -110,4 +125,3 @@ for one_product in sorted_products:
 #  + Pantry (2 products)
 #  + Personal Care (2 products)
 #  + Snacks (2 products)
-
