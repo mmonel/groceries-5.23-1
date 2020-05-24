@@ -88,7 +88,10 @@ print("--------------")
 unique_departments.sort()
 
 for d in unique_departments:
-    print(d.title())
+    matching_products = [
+        one_product for one_product in products if one_product["department"] == d]
+    matching_products = len(matching_products)
+    print(d.title() + " (" + str(matching_products) + " products)")
 
 # TODO: write some Python code here to produce the desired output
 
