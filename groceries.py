@@ -50,6 +50,12 @@ print("--------------")
 print("THERE ARE " + str(products_count) + " PRODUCTS:")
 print("--------------")
 
+
+def sort_by_name(any_product):
+    return any_product["name"]
+
+
+sorted_products = sorted(products, key=sort_by_name)
 # {"id": 1,
 #  "name": "Chocolate Sandwich Cookies",
 #         "department": "snacks",
@@ -58,7 +64,7 @@ print("--------------")
 #         }
 
 
-for one_product in products:
+for one_product in sorted_products:
     # print(one_product["name"])
     # price_usd = one_product["price"]
     price_usd = "( ${0:.2f})".format(one_product["price"])
@@ -104,3 +110,4 @@ for one_product in products:
 #  + Pantry (2 products)
 #  + Personal Care (2 products)
 #  + Snacks (2 products)
+
